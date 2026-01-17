@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "staging"
+  },
+  "public": true
+} 

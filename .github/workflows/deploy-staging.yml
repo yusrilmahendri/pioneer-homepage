@@ -1,0 +1,42 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [develop, staging]
+  pull_request:
+    branches: [develop, staging]
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Staging (Hostinger Subdomain)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.STAGING_FTP_SERVER }}
+          username: ${{ secrets.STAGING_FTP_USERNAME }}
+          password: ${{ secrets.STAGING_FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ./staging/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+            **/README.md
+            **/.DS_Store
+            **/Thumbs.db
+
+      - name: Notify staging deployment
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "✅ Staging deployment successful!"
+            echo "🌐 Staging URL: https://staging.yourdomain.com"
+          else
+            echo "❌ Staging deployment failed!"
+          fi

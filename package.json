@@ -1,0 +1,27 @@
+{
+  "name": "pioneer-solve-main",
+  "version": "1.0.0",
+  "description": "Website Pioneer Solve telah dioptimasi untuk SEO (Search Engine Optimization) dengan berbagai perbaikan yang akan meningkatkan peringkat di mesin pencari dan pengalaman pengguna.",
+  "main": "sw.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusrilmahendri/pioneer-homepage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yusrilmahendri/pioneer-homepage/issues"
+  },
+  "homepage": "https://github.com/yusrilmahendri/pioneer-homepage#readme",
+  "devDependencies": {
+    "sass": "^1.97.2"
+  }
+}
